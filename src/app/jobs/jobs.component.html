@@ -21,36 +21,42 @@
   </table> -->
 <div class="container-fluid">
 
-    <div class="container">
-      <h1> Find the Jobs</h1>
-      <div class="buttons">
-        <div class="row">
-          <div class="col">
-            <button id="jobs__find__jobList" type="button" class="btn btn-primary" (click)="onJobsClicked('list')"> Jobs</button>
-          </div>
-          <div class="col">
-            <button id="job__find__fav"type="button" class="btn btn-secondary" (click)="onJobsClicked('fav')"> Favorites</button>
-          </div>
+  <div class="container">
+    <h1> Find the Jobs</h1>
+    <div class="buttons">
+      <div class="row">
+        <div class="col">
+          <button id="jobs__find__jobList" type="button" class="btn btn-primary" (click)="onJobsClicked('list')">
+            Jobs</button>
+        </div>
+        <div class="col">
+          <button id="job__find__fav" type="button" class="btn btn-secondary" (click)="onJobsClicked('fav')">
+            Favorites</button>
         </div>
       </div>
-      <ng-container *ngIf="showJob || showFavs">
-        <div class="job" *ngFor="let job of filterJobs">
-          <img [src]="job.companyLogo" alt="Company Logo" class="company-logo" />
-          <div class="job-details">
-            <h2 id="job-title" (click)="onTitleClicked(job.id)"> {{job.title}} </h2>
-            <div class="company-name">Company: {{ job.companyName }}</div>
-            <div class="reference">Reference: {{ job.reference }}</div>
-            <!-- <div class="reference">Reference: {{ job. }}</div> -->
-          </div>
-          <div>
-            <div *ngIf="showIcon">
-              <fa-icon class="job-icon"  [style.color]="job.isRated? '#BC9936' : '#C2C2C2'"   [icon]=" fav " (click)="toggleRating(job.id)"></fa-icon>
-              <!-- <RatingComponent></RatingComponent> -->
-            </div>       
-        </div>    
-        </div>
-      </ng-container>
-      
-      
     </div>
+    <ng-container *ngIf="showJob || showFavs">
+      <div class="job" *ngFor="let job of filterJobs">
+        <img [src]="job.companyLogo" alt="Company Logo" class="company-logo" />
+        <div class="job-details">
+          <h2 id="job-title" (click)="onTitleClicked(job.id)"> {{job.title}} </h2>
+          <div class="company-name">Company: {{ job.companyName }}</div>
+          <div class="reference">Reference: {{ job.reference }}</div>
+          <!-- <div class="reference">Reference: {{ job. }}</div> -->
+        </div>
+        <div>
+          <div *ngIf="showIcon">
+            <fa-icon class="job-icon" [style.color]="job.isRated? '#BC9936' : '#C2C2C2'" [icon]=" fav "
+              (click)="toggleRating(job.id)"></fa-icon>
+            <!-- <RatingComponent></RatingComponent> -->
+          </div>
+
+        </div>
+
+        
+      </div>
+    </ng-container>
+
+
   </div>
+</div>

@@ -31,6 +31,11 @@
     "mini.css": "^3.0.1",
     "ngx-bootstrap": "^18.0.0",
     "npm": "^10.8.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react2angular": "^4.0.6",
+    "rest": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

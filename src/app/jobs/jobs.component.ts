@@ -56,7 +56,7 @@ export class JobsComponent implements OnInit {
       this.showJob= true; 
       this.filterJobs = this.allJobs;
       this.showIcon = true;
-     
+      
     
     }  
     else if ( value === 'fav'){
@@ -64,10 +64,11 @@ export class JobsComponent implements OnInit {
       
       this.filterJobs = this.allJobs.filter(job => job.isRated === true);
       this.showIcon =  false;
-      if(this.filterJobs.length < 0){
+      if(!this.filterJobs.length){ 
+        this.router.navigateByUrl('not-favJob');       
         this.filterJobs = [];
-      }
        
+      }     
       
      
     }  
