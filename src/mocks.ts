@@ -198,13 +198,14 @@ const DETAILED = {
   },
 };
 
-const ALL_JOBS = [
+export const ALL_JOBS = [
   {
     id: 98596,
     companyName: "Kraken",
     title: "Live Support Specialist - Mexico",
     companyLogo: "https://interstate21.com/job-search-app/Kraken.png",
     reference: "98596-live-support-specialist-mexico",
+    isRated: false,
   },
   {
     id: 75278,
@@ -212,6 +213,7 @@ const ALL_JOBS = [
     title: "People Operations Manager (Chinese / English)",
     companyLogo: "https://interstate21.com/job-search-app/scroll-io.jpg",
     reference: "75278-people-operations-specialist-chinese-and-english",
+    isRated: false,
   },
   {
     id: 98595,
@@ -219,6 +221,7 @@ const ALL_JOBS = [
     title: "Head of Product",
     companyLogo: "https://interstate21.com/job-search-app/Subspace.jpg",
     reference: "98595-head-of-product-6",
+    isRated: false,
   },
   {
     id: 80831,
@@ -226,6 +229,7 @@ const ALL_JOBS = [
     title: "Software Developer",
     companyLogo: "https://interstate21.com/job-search-app/SmartLogic.jpg",
     reference: "80831-software-developer-10",
+    isRated: false,
   },
   {
     id: 91478,
@@ -233,6 +237,7 @@ const ALL_JOBS = [
     title: "Product Content Marketer (f/m/d)",
     companyLogo: "https://interstate21.com/job-search-app/Anonos.jpg",
     reference: "91478-product-content-marketer-f-m-d",
+    isRated: false,
   },
   {
     id: 94525,
@@ -240,6 +245,7 @@ const ALL_JOBS = [
     title: "Sr. Public Sector Account Executive - SLED",
     companyLogo: "https://interstate21.com/job-search-app/ServiceNow.png",
     reference: "94525-sr-enterprise-account-executive-telco-media",
+    isRated: false,
   },
   {
     id: 103533,
@@ -247,6 +253,7 @@ const ALL_JOBS = [
     title: "Sales Support Representative",
     companyLogo: "https://interstate21.com/job-search-app/Twilio.jpg",
     reference: "103533-sales-support-representative-3",
+    isRated: false,
   },
   {
     id: 103532,
@@ -254,6 +261,7 @@ const ALL_JOBS = [
     title: "Technical Support Associate",
     companyLogo: "https://interstate21.com/job-search-app/Webflow.jpg",
     reference: "103532-technical-support-associate",
+    isRated: false,
   },
   {
     id: 103531,
@@ -261,6 +269,7 @@ const ALL_JOBS = [
     title: "Finance and Strategy Senior Analyst",
     companyLogo: "https://interstate21.com/job-search-app/Hopper.jpg",
     reference: "103531-finance-and-strategy-senior-analyst",
+    isRated: false,
   },
   {
     id: 94536,
@@ -268,6 +277,7 @@ const ALL_JOBS = [
     title: "Principal Site Reliability Engineer",
     companyLogo: "https://interstate21.com/job-search-app/DuckDuckGo.png",
     reference: "94536-principal-site-reliability-engineer",
+    isRated: false,
   },
   {
     id: 103530,
@@ -275,6 +285,7 @@ const ALL_JOBS = [
     title: "Senior Technical Support Engineer",
     companyLogo: "https://interstate21.com/job-search-app/Sonatype.jpg",
     reference: "103530-senior-technical-support-engineer",
+    isRated: false,
   },
   {
     id: 103529,
@@ -282,6 +293,7 @@ const ALL_JOBS = [
     title: "Lead Talent Management Consultant",
     companyLogo: "https://interstate21.com/job-search-app/Lumen.jpg",
     reference: "103529-lead-talent-management-consultant",
+    isRated: false,
   },
   {
     id: 96513,
@@ -289,6 +301,7 @@ const ALL_JOBS = [
     title: "Sr. Backend Engineer - Canada",
     companyLogo: "https://interstate21.com/job-search-app/Luxury.jpg",
     reference: "96513-sr-software-engineer-latam",
+    isRated: false,
   },
   {
     id: 96515,
@@ -296,6 +309,7 @@ const ALL_JOBS = [
     title: "Director - Communications",
     companyLogo: "https://interstate21.com/job-search-app/Twitch.jpg",
     reference: "96515-director-communications",
+    isRated: false,
   },
   {
     id: 103528,
@@ -303,8 +317,11 @@ const ALL_JOBS = [
     title: "AI Partnerships & Business Development Lead",
     companyLogo: "https://interstate21.com/job-search-app/Subspace.jpg",
     reference: "103528-ai-partnerships-business-development-lead",
+    isRated: false,
   },
 ];
+
+
 
 export const mockHandlers = [
   http.get("/jobs/:id", ({ params }) => {
@@ -320,3 +337,4 @@ export const mockHandlers = [
     return HttpResponse.json(ALL_JOBS);
   }),
 ];
+

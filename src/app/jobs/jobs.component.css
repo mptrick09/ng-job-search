@@ -1,0 +1,68 @@
+body {
+    width: 100%;
+   
+  }
+  
+  .job{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .company-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+  }
+  
+  .job-details {
+    flex-grow: 1;
+  }
+  
+  #job-title {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color:rgb(17, 16, 16);
+  }
+  
+  .company-name,
+  .reference {
+    font-size: 10.5pt;
+    color: #555;
+    padding-left: 1rem;
+  }
+  
+  .job-icon{
+    font-size: 20px;   
+    cursor: pointer;    
+    padding-right: 5rem;
+  }
+  
+  .buttons{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+   
+  }
+
+  .noData{
+    display: block;
+    color: black;
+    background-color: #fff;
+    width: 100%;
+    font-size: 12pt;
+    text-align: center;
+
+  }
+
+  #job-title:hover {
+    text-decoration:underline;
+    cursor: pointer;
+  }
+
+
