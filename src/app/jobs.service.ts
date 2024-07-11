@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, Signal, effect, inject, signal } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
-import { Job } from './job';
-import { faUnderline } from '@fortawesome/free-solid-svg-icons';
+
+import { Injectable } from '@angular/core';
+
 
 
 @Injectable({
@@ -10,32 +8,40 @@ import { faUnderline } from '@fortawesome/free-solid-svg-icons';
 })
 export class JobsService {
 
-  private favoritesKey:string = 'favorites';
-  
+  private favoritesKey: string = 'favorites';
+
   setFavorite(jobId: number): void {
     let favorites = localStorage.getItem(this.favoritesKey);
     if (!favorites) {
-      favorites = JSON.stringify([]) ;
+      favorites = JSON.stringify([]);
     }
     const favoritesArray = JSON.parse(favorites);
     if (favoritesArray.includes(jobId)) {
-      return; // Already favorited
+      return;
     }
+    console.log("selectedJobId",jobId);
     favoritesArray.push(jobId);
     localStorage.setItem(this.favoritesKey, JSON.stringify(favoritesArray));
   }
 
   getFavorite(): number[] {
-    const favorites = localStorage.getItem(this.favoritesKey);
+
+    const favorites = localStorage.getItem(this.favoritesKey);   
     return favorites ? JSON.parse(favorites) : [];
   }
-  
 
-  clearFavorites(): void {
-    localStorage.removeItem(this.favoritesKey);
+
+  clearFavorites(jobId:number): void {
+    let favorites = localStorage.getItem(this.favoritesKey);
+    if (!favorites) {
+      return;
+    }
+    let favoritesArray = JSON.parse(favorites);
+    favoritesArray = favoritesArray.filter((id:number) => id !== jobId);
+    localStorage.setItem(this.favoritesKey, JSON.stringify(favoritesArray));
   }
-  
+
 }
- 
+
 
 

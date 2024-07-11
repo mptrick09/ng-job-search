@@ -1,5 +1,23 @@
 .noData{
     display: block;
     text-align: center;
-    font-size: 24pt;
+    font-size: 34pt;
+    color: antiquewhite;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+
+.home__button{
+    padding: 10px 30px;
+    background-color: rgb(110, 73, 73);
+    cursor: pointer;
+}
+   
+
+
+
+.home__button:hover,
+.home__button:focus {
+    background-color: rgb(126, 112, 103);
+    cursor: pointer;
 }

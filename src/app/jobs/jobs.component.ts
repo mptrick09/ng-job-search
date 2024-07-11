@@ -22,7 +22,7 @@ import { JobsService } from '../jobs.service';
   ]
 })
 export class JobsComponent implements OnInit {
-  constructor( private jobsService : JobsService, private httpClient : HttpClient){}
+  constructor(private jobsService: JobsService) { }
 
 
   title = 'ng-job-search';
@@ -35,14 +35,13 @@ export class JobsComponent implements OnInit {
   models: Job[];
   showIcon: boolean = true;
   fav = faStar;
-  jobkey : string = 'cacheKey';
+  selectedData: number[];
 
 
   ngOnInit(): void {
 
     this.loadData();
-    // this.jobsService.clearFavorites();
- 
+
   }
   onJobsClicked(value: string) {
 
@@ -77,36 +76,37 @@ export class JobsComponent implements OnInit {
     this.models = this.models.map(job => {
       if (job.id === jobId) {
         job.isRated = !job.isRated;
+        if (job.isRated) {
+          this.jobsService.setFavorite(jobId);
+        } else {
+          this.jobsService.clearFavorites(jobId);
+        }
+
       }
       return job;
+
     });
 
-    this.jobsService.setFavorite(jobId);
 
-    
+
   }
 
   loadData() {
     this.http.get<Job[]>('/jobs').subscribe(
       (data) => {
         this.models = data;
-        const selectedData = this.jobsService.getFavorite();
-        console.log('selectedData', selectedData);
-       this.models.forEach(job=>{
-        job.isRated = selectedData.includes(job.id);
-       });
+        this.selectedData = this.jobsService.getFavorite();
+        // console.log('selectedData', selectedData);
+        this.models.forEach(job => {
+          job.isRated = this.selectedData.includes(job.id);
+        });
         this.filterJobs = this.models;
-       
         console.log(this.filterJobs);
-        if(this.filterJobs.length>0){
+        if (this.filterJobs.length > 0) {
           this.filterJobs = this.models;
         }
         console.log("checkData:", data);
       }
     )
   }
-
-
-
-
 }

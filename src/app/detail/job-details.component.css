@@ -21,10 +21,28 @@
 }
 
 .job-tilte__head {
-    background-color: blue;
-    border-radius: 10px;
+    background-color: rgb(19, 19, 187);
+    border-radius: 5px;
+    padding: 0 0.2rem;
+
 }
 
 .job-descprition {
-    padding-left: 10px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.back {
+
+    padding: 10px 30px;
+    background-color: darkgrey;
+    cursor: pointer;
+
+}
+
+.back:hover,
+.back:focus {
+    background-color: cornflowerblue;
+    cursor: pointer;
 }

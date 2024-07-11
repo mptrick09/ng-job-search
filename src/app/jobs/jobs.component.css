@@ -64,3 +64,29 @@ body {
   text-decoration: underline;
   cursor: pointer;
 }
+
+button[id="fav"] {
+ padding : 10px 30px;
+ color:black;
+ background-color: beige;
+}
+button[id="jobs"] {
+  padding : 10px 40px;
+  color:black;
+ background-color: beige;
+ }
+
+ button[id="fav"]:hover, button[id="fav"]:focus {
+
+  color:rgb(238, 234, 240);
+  background-color: rgb(17, 17, 17);
+
+ }
+ 
+ button[id="jobs"]:hover, button[id="jobs"]:focus {
+
+  color:rgb(238, 234, 240);
+  background-color: rgb(17, 17, 17);
+
+ }
+

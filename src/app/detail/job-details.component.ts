@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AppComponent } from '../app.component';
-import {  mockHandlers } from '../../mocks';
-import { http } from "msw";
-import { HttpClient, HttpResponseBase } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import React, { useEffect, useState } from 'react';
-import { Detail } from './model.Job-detail/detail';
+
+import { HttpClient } from '@angular/common/http';
+
+
+import { Detail } from './model_job-detail/detail';
 
 
 
@@ -20,12 +19,12 @@ import { Detail } from './model.Job-detail/detail';
   styleUrl: './job-details.component.css'
 })
 export class JobDetailsComponent implements OnInit {
- 
 
-currentId: number;
-model : Detail;
-job =  {
-  description: `
+
+  currentId: number;
+  model: Detail;
+  job = {
+    description: `
 <div class="section page-centered" data-qa="job-description">
     <div>Subspace is an early stage, venture backed startup, pioneering the next generation of decentralized technologies, envisioning a future where AI seamlessly integrates with Web3, redefining digital identities and payments.</div>
     <div></div>
@@ -68,52 +67,45 @@ job =  {
         </ul>
     </div>
 </div>
-<div class="section page-centered" data-qa="closing-description">
+<div class="section page-centered px" data-qa="closing-description">
     <h2><b>To apply</b></h2>
     <div>We believe in seeing your skills in action. In addition to your resume, please provide a sample of your work that demonstrates your expertise in blockchain, cryptocurrency, or related fields. This could be a whitepaper, a project proposal, a case study, or any other relevant work that showcases your abilities.</div>
 </div>
 `
-} ;
+  };
 
 
 
 
 
-   
-
-    router = inject(Router);
-    activatedRoute = inject(ActivatedRoute);
-    http = inject(HttpClient);
 
 
-  
-    ngOnInit(): void {
-     this.getJobDetail();
-    }
+  router = inject(Router);
+  activatedRoute = inject(ActivatedRoute);
+  http = inject(HttpClient);
+
+
+
+  ngOnInit(): void {
+    this.getJobDetail();
+  }
 
   getJobDetail() {
     this.activatedRoute.params.subscribe(params => {
       this.currentId = params['id'];
-     const path = 'jobs/'+ this.currentId;
+      const path = 'jobs/' + this.currentId;
 
       this.http.get<Detail>(path).subscribe(detail => {
         this.model = detail;
-        console.log(detail)
-      }    
+        console.log(detail);
+      }
       );
-
     });
 
 
 
   }
-
-
   back() {
     this.router.navigateByUrl('job-component');
   }
-
-
- 
-  
 }
