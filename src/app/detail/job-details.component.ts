@@ -8,7 +8,7 @@ import { http } from "msw";
 import { HttpClient, HttpResponseBase } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import React, { useEffect, useState } from 'react';
-import { Detail } from '../detail';
+import { Detail } from './model.Job-detail/detail';
 
 
 
@@ -22,8 +22,8 @@ import { Detail } from '../detail';
 export class JobDetailsComponent implements OnInit {
  
 
-currentId: any;
-model : any;
+currentId: number;
+model : Detail;
 job =  {
   description: `
 <div class="section page-centered" data-qa="job-description">
@@ -96,7 +96,7 @@ job =  {
       this.currentId = params['id'];
      const path = 'jobs/'+ this.currentId;
 
-      this.http.get(path).subscribe(detail => {
+      this.http.get<Detail>(path).subscribe(detail => {
         this.model = detail;
         console.log(detail)
       }    
