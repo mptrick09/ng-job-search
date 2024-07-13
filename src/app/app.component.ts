@@ -6,9 +6,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
-
-
-
 @Component({
   selector: 'app-root',
   standalone: true,

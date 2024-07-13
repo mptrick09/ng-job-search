@@ -7,7 +7,7 @@ import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 
 
-import { Detail } from './model_job-detail/detail';
+import { Detail } from './model/detail';
 
 
 

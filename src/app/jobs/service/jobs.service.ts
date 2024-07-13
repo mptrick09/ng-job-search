@@ -25,7 +25,6 @@ export class JobsService {
   }
 
   getFavorite(): number[] {
-
     const favorites = localStorage.getItem(this.favoritesKey);   
     return favorites ? JSON.parse(favorites) : [];
   }

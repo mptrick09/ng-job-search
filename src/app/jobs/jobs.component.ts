@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, inject, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
-import { Job } from '../job';
-import { JobsService } from '../jobs.service';
+
+import { JobsService } from './service/jobs.service';
+import { Job } from './model/job.model';
 
 
 
@@ -39,37 +40,28 @@ export class JobsComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     this.loadData();
-
   }
-  onJobsClicked(value: string) {
 
+  onJobsClicked(value: string) {
     if (value === 'list') {
       this.showJob = true;
-      this.filterJobs = this.models;
       this.showIcon = true;
-
-
+      this.filterJobs = this.models;    
     }
     else if (value === 'fav') {
       this.showFavs = true;
-
-      this.filterJobs = this.models.filter(job => job.isRated === true);
       this.showIcon = false;
+      this.filterJobs = this.models.filter(job => job.isRated === true);      
       if (!this.filterJobs.length) {
         this.router.navigateByUrl('not-favJob');
         this.filterJobs = [];
-
       }
     }
   }
 
   onTitleClicked(value: number) {
-
-    this.router.navigateByUrl('job/' + value);
-
-
+    this.router.navigateByUrl('job/'+ value);
   }
 
   toggleRating(jobId: number) {
@@ -81,10 +73,8 @@ export class JobsComponent implements OnInit {
         } else {
           this.jobsService.clearFavorites(jobId);
         }
-
       }
       return job;
-
     });
 
 
