@@ -15,9 +15,9 @@
         <div class="job-tilte__head">{{model.industries}}</div>
     </div>
 
-    <div> Publish Date: {{model.publishDate}}</div>
+    <div> Publish Date: {{model.publishDate | date }}</div>
     <div> Location: {{model.location}}</div>
     <div>Reference: {{ model.reference }}</div>
-    <div class="job-descprition" [innerHTML]="job.description"> Job Description: {{model.description}}</div>
-
-</div>
+    <div [innerHTML]="sanitizedJobDescription">Job Description: {{ model.description}}</div>
+    <br>
+    </div>
